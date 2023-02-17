@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="popupstyle.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>List of users</h1>
+      <div class="alert alert-success" id="row" role="alert">
+        Row is deleted
+      </div>
+      <div class="form-popup" id="myForm">
+        <div class="popup-content">
+          <div class="popup-header">
+            <h1>Are you sure?</h1>
+          </div>
+          <div class="popup-body"></div>
+          <div class="popup-footer text-right">
+            <button type="button" class="btn btn-success confirm-Btn">
+              confirm
+            </button>
+            <button type="button" class="btn btn-danger cancel-Btn">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+      <table class="table table caption-top" id="list">
+        <thead>
+          <tr id="demo">
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">CONTACTNUMBER</th>
+            <th scope="col">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-primary" id="1">
+            <td>1</td>
+            <td>Mark</td>
+            <td>@mdo</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+          <tr id="2">
+            <td>2</td>
+            <td>rita</td>
+            <td>@rita</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+          <tr class="table-primary" id="3">
+            <td>3</td>
+            <td>sneha</td>
+            <td>@sneha</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+          <tr id="4">
+            <td>4</td>
+            <td>rani</td>
+            <td>@rani</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+          <tr class="table-primary" id="5">
+            <td>5</td>
+            <td>sakshi</td>
+            <td>@sakshi</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+          <tr id="6">
+            <td>6</td>
+            <td>vani</td>
+            <td>@vani</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+
+          <tr class="table-primary" id="7">
+            <td>8</td>
+            <td>kiri</td>
+            <td>@kiri</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+          <tr id="8">
+            <td>9</td>
+            <td>sayam</td>
+            <td>@sayam</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+          <tr class="table-primary" id="9">
+            <td>10</td>
+            <td>swasti</td>
+            <td>@swasti</td>
+            <td>123654789</td>
+            <td class="float-right">
+              <button class="btn btn-danger deleteBtn">DELETE</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      var table_id;
+      $(".deleteBtn").click(function () {
+        var data = $(this).closest("tr").text();
+        table_id = $(this).closest("tr").attr("id");
+        $(".popup-body").html("").html(data);
+        $(".form-popup").show();
+      });
+      $(".confirm-Btn").click(function () {
+        $("#" + table_id).remove();
+        $("#row").show();
+        $(".form-popup").hide();
+      });
+      $(".cancel-Btn").click(function () {
+        $(".form-popup").hide();
+      });
+    </script>
+  </body>
+</html>
